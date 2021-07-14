@@ -1,7 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"console-app/app"
+	"log"
+	"os"
+)
 
 func main() {
-	fmt.Println("Ponto de Partida!...")
+	app := app.Gerar()
+
+	if err := app.Run(os.Args); err != nil {
+		log.Fatal(err)
+	}
 }

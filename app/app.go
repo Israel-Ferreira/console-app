@@ -1,6 +1,7 @@
 package app
 
 import (
+	"console-app/services"
 	"fmt"
 
 	"github.com/urfave/cli"
@@ -19,6 +20,23 @@ func Gerar() *cli.App{
 		return nil
 	}
 
+	app.Commands = []cli.Command{
+		{
+			Name: "ip",
+			Usage: "Busca Ips de Endereços na Internet",
+			Flags: []cli.Flag{
+				cli.StringFlag{
+					Name: "host",
+					Value: "devbook.com.br",
+				},
+			},
+			Action: services.BuscarIp,
+		},
+	}
+
 
 	return app
 }
+
+
+
